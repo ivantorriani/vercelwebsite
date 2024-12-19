@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Ivan Torriani's website</title>
+        <title>Ivan Torriani</title>
       </Head>
 
       <main>
