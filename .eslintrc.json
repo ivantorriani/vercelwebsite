@@ -1,17 +1,8 @@
 {
   "extends": [
-    "next/core-web-vitals",
-    "next/typescript",
-    "plugin:@typescript-eslint/recommended"
+    "next/core-web-vitals"
   ],
-  "rules": {
-    "@typescript-eslint/no-unused-expressions": [
-      "error",
-      {
-        "allowShortCircuit": true,
-        "allowTernary": true,
-        "allowLogicalOperators": true
-      }
-    ]
-  }
+  "plugins": [
+    "@next/next"
+  ]
 }
