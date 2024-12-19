@@ -16,7 +16,7 @@ export default function Home() {
           <div className="about-text">
             <p className= {styles.typingeffect}><strong>Hello! My name is Ivan Torriani. </strong></p>
             <p>
-             <em> Welcome to my website!</em> I'm from San Diego, California, and I'm currently a freshman at Cal Poly. I'm super passionate about the field of AI/ML and am super excited about all it's applications in not only engineering, but literature and polotics. Apart from school, I love to run, read, and work on anything collaboratively. In the future, I want to either pursue a career in Computer Science or go to law school.  
+             <em> Welcome to my website!</em> I am from San Diego, California and currently a freshman at Cal Poly. I am super passionate about the field of AI/ML and the applications in engineering and beyond. Apart from school, I love to run, read, and work on anything collaboratively. In the future, I want to either pursue a career in Computer Science or go to law school.  
             </p>
             <p> <strong> Want to get in touch? </strong> <em> Visit the contact page! </em></p>
           
