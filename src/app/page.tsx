@@ -1,6 +1,4 @@
 import Head from 'next/head';
-import BlogPreview from './components/blogPreview';
-import blogs from './blogData';
 import Image from 'next/image';
 import styles from './homepage.module.css'
 

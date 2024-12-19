@@ -1,6 +1,5 @@
 import React from 'react';
 import style from './blogPreview.module.css'
-import Image from 'next/image'; // For Next.js
 import { Blog } from "../blogData"; // importing the type/interface we defined earlier
 
 export default function BlogPreview(props: Blog) {

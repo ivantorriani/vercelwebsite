@@ -1,4 +1,4 @@
-import Head from 'next/head';
+
 import SkillSection from '../components/resumeComponents/skills';
 import ProjectSection from '../components/resumeComponents/projects';
 import ExperienceSection from '../components/resumeComponents/experience';

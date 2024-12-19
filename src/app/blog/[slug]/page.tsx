@@ -1,5 +1,5 @@
 'use client';
-
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { notFound } from 'next/navigation';
 import Comment from '../../components/Comment'; 
@@ -17,7 +17,7 @@ async function getBlog(slug: string) {
 }
 
 export default function BlogPost({ params }: { params: { slug: string } }) {
-  const [blog, setBlog] = useState<any>(null);
+  const [blog, setBlog] = useState<Blog | null>(null);
   const [comments, setComments] = useState<IComment[]>([]);
   const [user, setUser] = useState('');
   const [commentText, setCommentText] = useState('');
@@ -68,7 +68,14 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       {/* Blog Content */}
       <h1>{blog.title}</h1>
       <p>{blog.description}</p>
-      {blog.image && <img src={blog.image} alt={blog.title} />}
+      {blog.image && (
+        <Image 
+          src={blog.image} 
+          alt={blog.title} 
+          width={500} // Specify the width
+          height={300} // Specify the height
+        />
+        )}
       <p>{new Date(blog.date).toLocaleDateString()}</p>
 
       {/* Comments Section */}

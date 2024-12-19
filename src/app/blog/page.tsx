@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import BlogPreview from '../components/blogPreview';
 import connectDB from '../database/db';
-import blogSchema from '../database/blogSchema';
 import Link from 'next/link';
 import _Blog from '../database/blogSchema';
 
@@ -32,11 +31,7 @@ export default function Blog() {
 
 async function getBlogs() {
   await connectDB();
+  const blogs = await _Blog.find().sort({ date: -1 }).orFail();
+  return blogs;
 
-  try {
-    const blogs = await _Blog.find().sort({ date: -1 }).orFail();
-    return blogs;
-  } catch (err) {
-    return null;
-  }
 }
