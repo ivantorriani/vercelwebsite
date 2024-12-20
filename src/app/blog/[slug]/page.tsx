@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { notFound } from 'next/navigation';
 import Comment from '../../components/Comment';
 
-// Define the expected structure for the Blog data
+
 interface IComment {
   user: string;
   comment: string;
@@ -34,7 +34,7 @@ export default function BlogPost({ params }: { params: Promise<{ slug: string }>
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [slug, setSlug] = useState<string | null>(null);
 
-  // Fetch Blog Post and Comments
+
   useEffect(() => {
     async function fetchData() {
       const resolvedParams = await params;
@@ -57,7 +57,7 @@ export default function BlogPost({ params }: { params: Promise<{ slug: string }>
     fetchData();
   }, [params]);
 
-  // Handle Comment Submission
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!user || !commentText) return;

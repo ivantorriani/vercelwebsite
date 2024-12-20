@@ -1,25 +1,22 @@
-/* styles/Contact.module.css */
-
-/* Page container */
 
 .typingeffect {
   font-size: 1.5rem;
   font-weight: 600;
   color: #000;
-  white-space: nowrap; /* Keeps text on one line */
-  overflow: hidden; /* Hide overflowing text */
-  border-right: 3px solid rgba(0, 0, 0, 0.8); /* Smooth fading cursor */
+  white-space: nowrap; 
+  overflow: hidden; 
+  border-right: 3px solid rgba(0, 0, 0, 0.8); 
   animation: typing 3s cubic-bezier(0.4, 0, 0.2, 1), 
              fade-caret 1s infinite ease-in-out;
 }
 
-/* Typing animation */
+
 @keyframes typing {
   from {
-    width: 0; /* Start with no text visible */
+    width: 0; 
   }
   to {
-    width: 100%; /* Reveal the full text */
+    width: 100%; 
   }
 }
 
@@ -43,7 +40,7 @@
     font-family: 'Poppins', sans-serif;
   }
   
-  /* Welcome message */
+ 
   .welcomeMessage {
     font-size: 1.5rem;
     font-weight: bold;
@@ -53,7 +50,7 @@
     padding-bottom: 0.5rem;
   }
   
-  /* Form container */
+  
   .contactForm {
     width: 100%;
     max-width: 600px;
@@ -67,7 +64,7 @@
     background-color: #fff;
   }
   
-  /* Input fields */
+  
   .contactForm input,
   .contactForm textarea {
     width: 100%;
@@ -85,13 +82,11 @@
     min-height: 120px;
   }
   
-  /* Input focus effect */
   .contactForm input:focus,
   .contactForm textarea:focus {
     border: 2px solid #000;
   }
   
-  /* Submit button */
   .submitButton {
     padding: 0.75rem 1.5rem;
     background-color: #000;
@@ -112,9 +107,9 @@
   .contactForm input::placeholder,
     .contactForm textarea::placeholder {
     font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem; /* Adjust the size of the placeholder text */
-    color: #777; /* Change placeholder color */
-    opacity: 1; /* Ensure full opacity (default is slightly faded) */
+    font-size: 0.9rem; 
+    color: #777; 
+    opacity: 1; 
     }
 
-    /* Typing container */
+  
