@@ -27,7 +27,7 @@ async function getBlog(slug: string) {
 }
 
 // Remove the manual typing of `params` here, as Next.js automatically infers it
-export default function BlogPost({ params }: { params: { slug: string } }) {
+export default function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const [blog, setBlog] = useState<Blog | null>(null);
   const [comments, setComments] = useState<IComment[]>([]);
   const [user, setUser] = useState('');
@@ -37,7 +37,10 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
   // Fetch Blog Post and Comments
   useEffect(() => {
     async function fetchData() {
-      const fetchedBlog = await getBlog(params.slug);
+      // Resolve the promise for params
+      const resolvedParams = await params;
+      
+      const fetchedBlog = await getBlog(resolvedParams.slug);
       if (!fetchedBlog) {
         notFound();
       }
@@ -45,7 +48,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       setComments(fetchedBlog.comments || []);
     }
     fetchData();
-  }, [params.slug]);
+  }, [params]); // Add `params` to dependency array
 
   // Handle Comment Submission
   const handleSubmit = async (e: React.FormEvent) => {
