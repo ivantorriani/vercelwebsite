@@ -3,33 +3,101 @@
   \***********************************************************************************************************************************************************************************************************************************************************************/
 /* Typing container */
 .homepage_typingeffect__dZjZw {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #000;
-    white-space: nowrap; /* Keeps text on one line */
-    overflow: hidden; /* Hide overflowing text */
-    border-right: 3px solid rgba(0, 0, 0, 0.8); /* Smooth fading cursor */
-    animation: homepage_typing__GEVHz 3s cubic-bezier(0.4, 0, 0.2, 1), 
-               homepage_fade-caret__i_g4x 1s infinite ease-in-out;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000;
+  white-space: nowrap; /* Keeps text on one line */
+  overflow: hidden; /* Hide overflowing text */
+  border-right: 3px solid rgba(0, 0, 0, 0.8); /* Smooth fading cursor */
+  animation: homepage_typing__GEVHz 3s cubic-bezier(0.4, 0, 0.2, 1), 
+             homepage_fade-caret__i_g4x 1s infinite ease-in-out;
+}
+
+.homepage_container__go4W_ {
+  /* existing styles */
+  position: relative;
+
+}
+
+.homepage_wave_text__0ERQO span {
+  display: inline-block;
+  animation: homepage_wave__cTL1a 1.5s infinite;
+}
+
+.homepage_wave_text__0ERQO span:nth-child(odd) {
+  animation-delay: 0.1s;
+}
+
+@keyframes homepage_wave__cTL1a {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.homepage_glass_box__mSUtE {
+  width: 300px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.homepage_contact__Nr1tf {
+  /* existing styles */
+  position: relative;
+  margin-top: .01px; /* Add some space above the contact */
+}
+
+
+@keyframes homepage_snowfall__9a0_J {
+  0% { transform: translateY(-10px); }
+  100% { transform: translateY(100vh); }
+}
+
+.homepage_snowflake__Ypijd {
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: homepage_snowfall__9a0_J 10s linear infinite;
+  animation-delay: calc(-10s / var(--i));
+  left: calc(100% * var(--i) / 10);
+}
+.homepage_minimalist_box__Nj82d {
+  border: 1px solid #000; /* Thin black border */
+  padding: 20px; /* Space inside the box */
+  margin: 20px; /* Space outside the box */
+  border-radius: 5px; /* Slightly rounded corners */
+  background-color: #fff; /* White background */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Minimal shadow for depth */
+}
+
+.homepage_description__1DV5q{
+  margin-left: auto; /* Push the description to the right */
+  font-weight: normal;
+}
+
+/* Typing animation */
+@keyframes homepage_typing__GEVHz {
+  from {
+    width: 0; /* Start with no text visible */
   }
-  
-  /* Typing animation */
-  @keyframes homepage_typing__GEVHz {
-    from {
-      width: 0; /* Start with no text visible */
-    }
-    to {
-      width: 100%; /* Reveal the full text */
-    }
+  to {
+    width: 100%; /* Reveal the full text */
   }
-  
-  /* Smooth fading cursor animation */
-  @keyframes homepage_fade-caret__i_g4x {
-    0%, 100% {
-      border-color: rgba(0, 0, 0, 0.8);
-    }
-    50% {
-      border-color: rgba(0, 0, 0, 0.2); /* Cursor fades out */
-    }
+}
+
+/* Smooth fading cursor animation */
+@keyframes homepage_fade-caret__i_g4x {
+  0%, 100% {
+    border-color: rgba(0, 0, 0, 0.8);
   }
-  
+  50% {
+    border-color: rgba(0, 0, 0, 0.2); /* Cursor fades out */
+  }
+}
+

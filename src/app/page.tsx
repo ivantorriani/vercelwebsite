@@ -18,12 +18,21 @@ export default function Home() {
             <p>
              <em> Welcome to my website!</em> I am from San Diego, California and currently a freshman at Cal Poly. I am super passionate about the field of AI/ML and the applications in engineering and beyond. Apart from school, I love to run, read, and work on anything collaboratively. In the future, I want to either pursue a career in Computer Science or go to law school.  
             </p>
-            <p> <strong> Want to get in touch? </strong> <em> Visit the contact page! </em></p>
-          
+
             
             
           </div>
         </div>
+
+      <div className = {styles.minamilist_box}> 
+        <div className = {styles.wave_text}>
+          <h1> <strong> <span>Want to get in touch? </span></strong> </h1>
+        </div>  
+        <div className = {styles.description}>
+          <p> Feel free to visit the contact page! </p>
+        </div>
+      </div>
+      
 
       </main>
 

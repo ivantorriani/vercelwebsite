@@ -18,17 +18,6 @@
       "static/css/app/blog/page.css",
       "static/chunks/app/blog/page.js"
     ],
-    "/blog/[slug]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/blog/[slug]/page.css",
-      "static/chunks/app/blog/[slug]/page.js"
-    ],
-    "/api/blogs/[slug]/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/blogs/[slug]/route.js"
-    ],
     "/resume/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
