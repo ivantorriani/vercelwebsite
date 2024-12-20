@@ -1,25 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '../../../database/db';
-import blogSchema from "../../../database/blogSchema";
+import blogSchema from '../../../database/blogSchema';
 
-// Typing for params
-type Params = {
-  slug: string;
-};
-
-// GET API route handler
-export async function GET(req: NextRequest, { params }: { params: Params }) {
-  // Connect to the database
-  await connectDB();
-
-  // Extract slug from params
-  const { slug } = params;
-
-  // Fetch blog by slug
+export async function GET(
+	req: NextRequest,
+	context: any // Temporarily use 'any'
+  ): Promise<NextResponse> {
+	const { slug } = context.params;
+	await connectDB();
+	const blog = await blogSchema.findOne({ slug }).orFail();
+	return NextResponse.json(blog);
+  }
   
-    const blog = await blogSchema.findOne({ slug }).orFail(); // Find blog or throw an error
-
-    // Return blog data as a JSON response
-    return NextResponse.json(blog);
-
-}

@@ -2,12 +2,26 @@
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { notFound } from 'next/navigation';
-import Comment from '../../components/Comment'; 
+import Comment from '../../components/Comment';
 
+// Define the expected structure for the Blog data
 interface IComment {
   user: string;
   comment: string;
   time: string;
+}
+
+interface Blog {
+  title: string;
+  description: string;
+  image: string;
+  date: string;
+  comments?: IComment[];
+}
+
+// Define the props for BlogPost component with correct type for params
+interface BlogPostProps {
+  params: { slug: string };
 }
 
 async function getBlog(slug: string) {
@@ -16,7 +30,8 @@ async function getBlog(slug: string) {
   return res.json();
 }
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
+// This is the main component for the blog page, it will receive `params` from Next.js dynamically
+export default function BlogPost({ params }: BlogPostProps) {
   const [blog, setBlog] = useState<Blog | null>(null);
   const [comments, setComments] = useState<IComment[]>([]);
   const [user, setUser] = useState('');
@@ -75,7 +90,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           width={500} // Specify the width
           height={300} // Specify the height
         />
-        )}
+      )}
       <p>{new Date(blog.date).toLocaleDateString()}</p>
 
       {/* Comments Section */}
