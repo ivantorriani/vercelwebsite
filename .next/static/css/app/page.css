@@ -1,0 +1,35 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./src/app/homepage.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************/
+/* Typing container */
+.homepage_typingeffect__dZjZw {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000;
+    white-space: nowrap; /* Keeps text on one line */
+    overflow: hidden; /* Hide overflowing text */
+    border-right: 3px solid rgba(0, 0, 0, 0.8); /* Smooth fading cursor */
+    animation: homepage_typing__GEVHz 3s cubic-bezier(0.4, 0, 0.2, 1), 
+               homepage_fade-caret__i_g4x 1s infinite ease-in-out;
+  }
+  
+  /* Typing animation */
+  @keyframes homepage_typing__GEVHz {
+    from {
+      width: 0; /* Start with no text visible */
+    }
+    to {
+      width: 100%; /* Reveal the full text */
+    }
+  }
+  
+  /* Smooth fading cursor animation */
+  @keyframes homepage_fade-caret__i_g4x {
+    0%, 100% {
+      border-color: rgba(0, 0, 0, 0.8);
+    }
+    50% {
+      border-color: rgba(0, 0, 0, 0.2); /* Cursor fades out */
+    }
+  }
+  
