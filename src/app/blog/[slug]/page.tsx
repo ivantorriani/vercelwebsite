@@ -26,8 +26,12 @@ async function getBlog(slug: string) {
   return res.json();
 }
 
-// This is the main component for the blog page, it will receive `params` from Next.js dynamically
-export default function BlogPost({ params }: { params: { slug: string } }) {
+// Type the parameters correctly for Next.js app router
+interface BlogPostProps {
+  params: { slug: string };
+}
+
+export default function BlogPost({ params }: BlogPostProps) {
   const [blog, setBlog] = useState<Blog | null>(null);
   const [comments, setComments] = useState<IComment[]>([]);
   const [user, setUser] = useState('');
