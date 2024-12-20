@@ -1,8 +1,8 @@
-// File: C:\Documents\Computer Projects\bootcamp-project-2024\bootcamp-milestone-two\bootcamp-milestone-two\src\app\portfolio\page.tsx
-import * as entry from '../../../../src/app/portfolio/page.js'
+// File: C:\Documents\Computer Projects\bootcamp-project-2024\bootcamp-milestone-two\bootcamp-milestone-two\src\app\resume\page.tsx
+import * as entry from '../../../../src/app/resume/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../../src/app/portfolio/page.js')
+type TEntry = typeof import('../../../../src/app/resume/page.js')
 
 type SegmentParams<T extends Object = any> = T extends Record<string, any>
   ? { [K in keyof T]: T[K] extends string ? string | string[] | undefined : never }

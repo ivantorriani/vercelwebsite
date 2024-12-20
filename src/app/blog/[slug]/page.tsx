@@ -21,29 +21,27 @@ interface Blog {
 }
 
 async function getBlog(slug: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${slug}`, { cache: 'no-store' });
+  const res = await fetch(`/api/blogs/${slug}`, { cache: 'no-store' });
   if (!res.ok) return null;
   return res.json();
 }
 
-// Remove the manual typing of `params` here, as Next.js automatically infers it
 export default function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const [blog, setBlog] = useState<Blog | null>(null);
   const [comments, setComments] = useState<IComment[]>([]);
   const [user, setUser] = useState('');
   const [commentText, setCommentText] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [slug, setSlug] = useState<string | null>(null); // Store resolved slug
+  const [slug, setSlug] = useState<string | null>(null);
 
   // Fetch Blog Post and Comments
   useEffect(() => {
     async function fetchData() {
-      // Resolve the promise for params
       const resolvedParams = await params;
-      setSlug(resolvedParams.slug); // Set the slug to the state
+      setSlug(resolvedParams.slug);
 
       if (!resolvedParams.slug) {
-        notFound(); // Handle slug not found case
+        notFound();
         return;
       }
 
@@ -52,11 +50,12 @@ export default function BlogPost({ params }: { params: Promise<{ slug: string }>
         notFound();
         return;
       }
+
       setBlog(fetchedBlog);
       setComments(fetchedBlog.comments || []);
     }
     fetchData();
-  }, [params]); // Add `params` to dependency array
+  }, [params]);
 
   // Handle Comment Submission
   const handleSubmit = async (e: React.FormEvent) => {
@@ -72,7 +71,7 @@ export default function BlogPost({ params }: { params: Promise<{ slug: string }>
     };
 
     if (slug) {
-      await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${slug}/comments`, {
+      await fetch(`/api/blogs/${slug}/comments`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newComment),
@@ -96,8 +95,8 @@ export default function BlogPost({ params }: { params: Promise<{ slug: string }>
         <Image 
           src={blog.image} 
           alt={blog.title} 
-          width={500} // Specify the width
-          height={300} // Specify the height
+          width={500} 
+          height={300} 
         />
       )}
       <p>{new Date(blog.date).toLocaleDateString()}</p>
