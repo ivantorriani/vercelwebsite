@@ -1,4 +1,5 @@
 'use client';
+
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { notFound } from 'next/navigation';
@@ -19,11 +20,6 @@ interface Blog {
   comments?: IComment[];
 }
 
-// Define the props for BlogPost component with correct type for params
-interface BlogPostProps {
-  params: { slug: string };
-}
-
 async function getBlog(slug: string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${slug}`, { cache: 'no-store' });
   if (!res.ok) return null;
@@ -31,11 +27,11 @@ async function getBlog(slug: string) {
 }
 
 // This is the main component for the blog page, it will receive `params` from Next.js dynamically
-export default function BlogPost({ params }: BlogPostProps) {
+export default function BlogPost({ params }: { params: { slug: string } }) {
   const [blog, setBlog] = useState<Blog | null>(null);
   const [comments, setComments] = useState<IComment[]>([]);
   const [user, setUser] = useState('');
-  const [commentText, setCommentText] = useState('');
+  const [commentText, setCommentText] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Fetch Blog Post and Comments
