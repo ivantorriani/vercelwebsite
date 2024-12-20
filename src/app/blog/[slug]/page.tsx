@@ -33,16 +33,24 @@ export default function BlogPost({ params }: { params: Promise<{ slug: string }>
   const [user, setUser] = useState('');
   const [commentText, setCommentText] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [slug, setSlug] = useState<string | null>(null); // Store resolved slug
 
   // Fetch Blog Post and Comments
   useEffect(() => {
     async function fetchData() {
       // Resolve the promise for params
       const resolvedParams = await params;
-      
+      setSlug(resolvedParams.slug); // Set the slug to the state
+
+      if (!resolvedParams.slug) {
+        notFound(); // Handle slug not found case
+        return;
+      }
+
       const fetchedBlog = await getBlog(resolvedParams.slug);
       if (!fetchedBlog) {
         notFound();
+        return;
       }
       setBlog(fetchedBlog);
       setComments(fetchedBlog.comments || []);
@@ -63,15 +71,17 @@ export default function BlogPost({ params }: { params: Promise<{ slug: string }>
       time: new Date().toISOString(),
     };
 
-    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${params.slug}/comments`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newComment),
-    });
+    if (slug) {
+      await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${slug}/comments`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newComment),
+      });
 
-    setComments((prev) => [...prev, newComment]);
-    setUser('');
-    setCommentText('');
+      setComments((prev) => [...prev, newComment]);
+      setUser('');
+      setCommentText('');
+    }
     setIsSubmitting(false);
   };
 

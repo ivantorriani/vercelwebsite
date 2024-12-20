@@ -22,6 +22,7 @@ export default function Blog() {
               title={blog.title}
               description={blog.description}
               date={blog.date}
+              image = {blog.image}
             />
           </Link>
         ))}
