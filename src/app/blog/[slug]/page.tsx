@@ -26,12 +26,8 @@ async function getBlog(slug: string) {
   return res.json();
 }
 
-// Type the parameters correctly for Next.js app router
-interface BlogPostProps {
-  params: { slug: string };
-}
-
-export default function BlogPost({ params }: BlogPostProps) {
+// Remove the manual typing of `params` here, as Next.js automatically infers it
+export default function BlogPost({ params }: { params: { slug: string } }) {
   const [blog, setBlog] = useState<Blog | null>(null);
   const [comments, setComments] = useState<IComment[]>([]);
   const [user, setUser] = useState('');
